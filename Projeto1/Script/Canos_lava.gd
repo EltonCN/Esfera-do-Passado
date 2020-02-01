@@ -107,6 +107,7 @@ func _ready():
 	rot[1][2] = 90
 	rot[0][3] = 180
 	rot[1][4] = 270
+	rot[0][2] = 90
 	
 	pass # Replace with function body.
 

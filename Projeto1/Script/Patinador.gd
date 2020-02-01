@@ -12,16 +12,18 @@ func _ready():
 
  #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_pressed("Direita") and !Input.is_action_pressed("Esquerda")):
-		velocidade.x += acel*delta
-	elif(!Input.is_action_pressed("Direita") and Input.is_action_pressed("Esquerda")):	
-		velocidade.x -= acel*delta
-		
-	if(Input.is_action_pressed("Cima") and !Input.is_action_pressed("Baixo")):
-		velocidade.y -= acel*delta
-	elif(!Input.is_action_pressed("Cima") and Input.is_action_pressed("Baixo")):	
-		velocidade.y += acel*delta
+	if(get_parent().estagio <3):
 	
+		if(Input.is_action_pressed("Direita") and !Input.is_action_pressed("Esquerda")):
+			velocidade.x += acel*delta
+		elif(!Input.is_action_pressed("Direita") and Input.is_action_pressed("Esquerda")):	
+			velocidade.x -= acel*delta
+			
+		if(Input.is_action_pressed("Cima") and !Input.is_action_pressed("Baixo")):
+			velocidade.y -= acel*delta
+		elif(!Input.is_action_pressed("Cima") and Input.is_action_pressed("Baixo")):	
+			velocidade.y += acel*delta
+		
 	if(velocidade.x>velocidade_max):
 		velocidade.x = velocidade_max
 	
