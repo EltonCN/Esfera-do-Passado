@@ -8,6 +8,8 @@ extends GridContainer
 var estado = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
 var rot = []
 
+var concluido = -2
+
 func atualiza(l,c):
 	if(estado[l][c] < 0):
 		return
@@ -48,10 +50,13 @@ func atualiza_lava():
 				estado[i][j] *= -1
 	
 	atualiza(0,0)
-	
 			
 	pass
 
+func atualiza_textura():
+	for i in range(3):
+		for j in range(7):
+			get_node("Cano"+str(i)+"_"+str(j)).atualiza_textura()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -108,5 +113,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(concluido < 0):
+		atualiza_textura()
+		concluido += 1
+		
 	atualiza_lava()
+	
+	if(estado[2][6]<0):
+		concluido = 1
+		atualiza_textura()
+			
 	pass

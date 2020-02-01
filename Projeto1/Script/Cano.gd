@@ -85,15 +85,20 @@ func _process(delta):
 			baixo = 1
 			esq = 1
 	
+	set_rotation((pai.rot[l][c])*PI/180)
+
+func atualiza_textura():
 	#Atualiza a textura
 	if(pai.estado[l][c]>0):
 		set_normal_texture(vazio)
 	else:
 		set_normal_texture(lava)
 	
-	set_rotation((pai.rot[l][c])*PI/180)
-			
 func _on_Cano_pressed():
+	
+	if(pai.concluido == 1):
+		return
+	
 	pai.rot[l][c] += 90
 	
 	if(pai.rot[l][c] == 360):
