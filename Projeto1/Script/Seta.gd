@@ -17,30 +17,31 @@ func _ready():
 func _process(delta):
 	for i in range(4):
 		if(Script_global.seta[i] == 0):
-			get_node(direcao[i]).disable()
-			get_node(direcao[i]+"Sprite").hide()
+			get_node(direcao[i]).set_disabled(true)
+			
+			get_node(direcao[i]+"/Sprite").hide()
 		elif(Script_global.seta[i] == 1):
-			get_node(direcao[i]).enable()
-			get_node(direcao[i]+"Sprite").show()
+			get_node(direcao[i]).set_disabled(false)
+			get_node(direcao[i]+"/Sprite").show()
 		pass	
 	pass
 
 
 func _on_Cima_pressed():
-	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[0])
+	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[0]+".tscn")
 	pass # Replace with function body.
 
 
 func _on_Esquerda_pressed():
-	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[1])
+	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[1]+".tscn")
 	pass # Replace with function body.
 
 
 func _on_Direita_pressed():
-	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[2])
+	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[2]+".tscn")
 	pass # Replace with function body.
 
 
 func _on_Baixo_pressed():
-	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[3])
+	get_tree().change_scene("res://Cenas/"+Script_global.proxima_cena[3]+".tscn")
 	pass # Replace with function body.
