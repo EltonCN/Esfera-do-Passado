@@ -8,9 +8,9 @@ var proxima_cena = ["","","",""]
 
 var cursor = 0 #0 normal, 1 mão
 
-var sprite_normal = Input.CursorShape.CURSOR_ARROW
-var sprite_cursor = sprite_normal
-var sprite_mao = "res://Sprite/Mao"
+onready var sprite_normal = preload("res://Sprite/Mão.png")
+onready var sprite_cursor = sprite_normal
+onready var sprite_mao = preload("res://Sprite/Mão.png")
 
 
 
