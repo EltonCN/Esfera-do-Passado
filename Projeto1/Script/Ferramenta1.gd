@@ -14,5 +14,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(is_disabled() == true):
-		get_node("Ferramenta1").hide()
+		get_node("Sprite").hide()
 	pass

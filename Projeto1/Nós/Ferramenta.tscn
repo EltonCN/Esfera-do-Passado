@@ -24,4 +24,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ferramenta1" type="Sprite" parent="Ferramenta1"]
+[node name="Sprite" type="Sprite" parent="Ferramenta1"]
+
+[node name="Ferramenta4" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Ferramenta4"]
+
+[node name="Ferramenta3" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Ferramenta3"]
+
+[node name="Ferramenta2" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Ferramenta2"]
+[connection signal="pressed" from="Ferramenta1" to="." method="_on_Ferramenta1_pressed"]
+[connection signal="pressed" from="Ferramenta4" to="." method="_on_Ferramenta4_pressed"]
+[connection signal="pressed" from="Ferramenta3" to="." method="_on_Ferramenta3_pressed"]
+[connection signal="pressed" from="Ferramenta2" to="." method="_on_Ferramenta2_pressed"]
