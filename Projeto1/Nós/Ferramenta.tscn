@@ -3,20 +3,21 @@
 [ext_resource path="res://Script/Ferramenta1.gd" type="Script" id=1]
 [ext_resource path="res://Script/Ferramenta.gd" type="Script" id=2]
 
-[node name="Ferramenta" type="Button"]
-margin_right = 12.0
-margin_bottom = 20.0
-rect_pivot_offset = Vector2( -60.3942, -961.561 )
+[node name="Ferramenta" type="Node2D"]
+
+[node name="Ferramenta" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Botão" type="Sprite" parent="."]
+[node name="Botão" type="Sprite" parent="Ferramenta"]
 
-[node name="Barra" type="Sprite" parent="."]
+[node name="Barra" type="Sprite" parent="Ferramenta"]
 
-[node name="Ferramenta1" type="Button" parent="."]
+[node name="Ferramenta1" type="TextureButton" parent="Ferramenta"]
 margin_right = 12.0
 margin_bottom = 20.0
 script = ExtResource( 1 )
@@ -24,9 +25,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Ferramenta1"]
+[node name="Sprite" type="Sprite" parent="Ferramenta/Ferramenta1"]
 
-[node name="Ferramenta4" type="Button" parent="."]
+[node name="Ferramenta4" type="TextureButton" parent="Ferramenta"]
 margin_right = 12.0
 margin_bottom = 20.0
 script = ExtResource( 1 )
@@ -34,9 +35,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Ferramenta4"]
+[node name="Sprite" type="Sprite" parent="Ferramenta/Ferramenta4"]
 
-[node name="Ferramenta3" type="Button" parent="."]
+[node name="Ferramenta3" type="TextureButton" parent="Ferramenta"]
 margin_right = 12.0
 margin_bottom = 20.0
 script = ExtResource( 1 )
@@ -44,9 +45,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Ferramenta3"]
+[node name="Sprite" type="Sprite" parent="Ferramenta/Ferramenta3"]
 
-[node name="Ferramenta2" type="Button" parent="."]
+[node name="Ferramenta2" type="TextureButton" parent="Ferramenta"]
 margin_right = 12.0
 margin_bottom = 20.0
 script = ExtResource( 1 )
@@ -54,8 +55,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Ferramenta2"]
-[connection signal="pressed" from="Ferramenta1" to="." method="_on_Ferramenta1_pressed"]
-[connection signal="pressed" from="Ferramenta4" to="." method="_on_Ferramenta4_pressed"]
-[connection signal="pressed" from="Ferramenta3" to="." method="_on_Ferramenta3_pressed"]
-[connection signal="pressed" from="Ferramenta2" to="." method="_on_Ferramenta2_pressed"]
+[node name="Sprite" type="Sprite" parent="Ferramenta/Ferramenta2"]
+[connection signal="pressed" from="Ferramenta/Ferramenta1" to="." method="_on_Ferramenta1_pressed"]
+[connection signal="pressed" from="Ferramenta/Ferramenta4" to="." method="_on_Ferramenta4_pressed"]
+[connection signal="pressed" from="Ferramenta/Ferramenta3" to="." method="_on_Ferramenta3_pressed"]
+[connection signal="pressed" from="Ferramenta/Ferramenta2" to="." method="_on_Ferramenta2_pressed"]

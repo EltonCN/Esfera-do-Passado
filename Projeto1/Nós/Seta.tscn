@@ -1,46 +1,61 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Script/Seta.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/Seta.png" type="Texture" id=2]
 
 [node name="Seta" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Cima" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="Cima"]
-
-[node name="Esquerda" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="Esquerda"]
-
-[node name="Direita" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="Direita"]
-
-[node name="Baixo" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Baixo" type="TextureButton" parent="."]
+light_mask = 0
+margin_left = 552.084
+margin_top = 479.603
+margin_right = 643.084
+margin_bottom = 567.603
+rect_rotation = 89.5751
+rect_scale = Vector2( 1.02266, 1.01061 )
 
 [node name="Sprite" type="Sprite" parent="Baixo"]
+position = Vector2( 46.4324, 44.9695 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Cima" type="TextureButton" parent="."]
+margin_left = 468.0
+margin_top = 36.0
+margin_right = 556.0
+margin_bottom = 127.0
+rect_scale = Vector2( 0.904138, 0.970902 )
+
+[node name="Sprite" type="Sprite" parent="Cima"]
+position = Vector2( 45.347, 45.3187 )
+rotation = -1.5708
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Esquerda" type="TextureButton" parent="."]
+margin_left = 28.0
+margin_top = 271.0
+margin_right = 121.0
+margin_bottom = 353.0
+
+[node name="Sprite" type="Sprite" parent="Esquerda"]
+position = Vector2( 44.4917, 41.5289 )
+rotation = -3.14159
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Direita" type="TextureButton" parent="."]
+margin_left = 910.069
+margin_top = 253.98
+margin_right = 1004.07
+margin_bottom = 349.98
+
+[node name="Sprite" type="Sprite" parent="Direita"]
+position = Vector2( 48.2878, 52.0069 )
+scale = Vector2( 0.39698, 0.437896 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="Baixo" to="." method="_on_Baixo_pressed"]
 [connection signal="pressed" from="Cima" to="." method="_on_Cima_pressed"]
 [connection signal="pressed" from="Esquerda" to="." method="_on_Esquerda_pressed"]
 [connection signal="pressed" from="Direita" to="." method="_on_Direita_pressed"]
-[connection signal="pressed" from="Baixo" to="." method="_on_Baixo_pressed"]

@@ -1,5 +1,7 @@
-extends Button
+extends Node2D
 
+var cena_ferramenta = load("res://Nós/Ferramenta.tscn")
+var ferramenta = null
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,7 +10,9 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	node.get_child()
+	ferramenta = cena_ferramenta.instance()
+	ferramenta.name = "Ferramenta"
+	add_child(ferramenta)
 	pass # Replace with function body.
 
 
