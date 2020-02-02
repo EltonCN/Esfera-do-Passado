@@ -23,7 +23,7 @@
 radius = 15.9032
 height = 17.4005
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
@@ -39,6 +39,7 @@ radius = 30.866
 height = 23.2044
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2( 0.999524, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 226.59 ]
@@ -72,7 +73,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Patinador"]
 position = Vector2( 13.0321, -4.07254 )
 scale = Vector2( 0.6329, 0.605 )
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 playing = true
 
 [node name="Genius" type="GridContainer" parent="."]
