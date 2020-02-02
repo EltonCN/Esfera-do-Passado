@@ -74,6 +74,7 @@ shape = SubResource( 1 )
 position = Vector2( 13.0321, -4.07254 )
 scale = Vector2( 0.6329, 0.605 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Genius" type="GridContainer" parent="."]
