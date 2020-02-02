@@ -11,10 +11,10 @@ func _ready():
 	tipo = self.name[7]
 	tipo = int(tipo)
 	
-	apagado = load("res://Sprite/Cristal"+str(tipo)+".png")
-	aceso = load("res://Sprite/CristalA"+str(tipo)+".png")
+	apagado = load("res://Sprite/Gelo/Cristal"+str(tipo)+".png")
+	aceso = load("res://Sprite/Gelo/Cristal"+str(tipo)+"A.png")
 	
-	#Sprite.texture = apagado
+	get_node("Sprite").texture = apagado
 	pass # Replace with function body.
 
 
@@ -24,10 +24,12 @@ func _ready():
 
 
 func _on_Cristal_body_entered(body):
-	get_parent().atualizar(tipo)
-	Sprite.texture = aceso	
+	if(body.name == "Patinador"):
+		get_tree().get_root().get_node("Node2D").atualizar(tipo)
+		get_tree().get_root().get_node("Node2D/Cristais/Tom"+str(tipo+1)).play()
+		get_node("Sprite").texture = aceso
 
 
 func _on_Cristal_body_exited(body):
-	Sprite.texture = apagado
+	get_node("Sprite").texture = apagado
 	pass # Replace with function body.

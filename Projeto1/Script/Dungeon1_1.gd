@@ -1,7 +1,7 @@
 extends Node2D
 
-var cena_ferramenta = load("res://Nós/Ferramenta.tscn")
-var ferramenta = null
+var cena_seta = load("res://Nós/Seta.tscn")
+var seta = null
 
 var estagio = 0
 var tempo = 6
@@ -18,6 +18,11 @@ func atualizar(novo):
 	if(estagio == 3):
 		return
 	
+	novo+=1
+	
+	
+	print(novo)
+	
 	if(novo == sequencia[estagio][atual]):
 		atual += 1
 	else:
@@ -31,9 +36,9 @@ func atualizar(novo):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ferramenta = cena_ferramenta.instance()
-	ferramenta.name = "Ferramenta"
-	add_child(ferramenta)
+	seta = cena_seta.instance()
+	seta.name = "Ferramenta"
+	add_child(seta)
 	
 	Script_global.seta[0] = 0
 	Script_global.seta[1] = 0
@@ -51,19 +56,21 @@ func _ready():
 	sequencia[0][3] = 4
 	sequencia[0][4] = 5
 	
-	sequencia[1][0] = 2
+	sequencia[1][0] = 3
 	sequencia[1][1] = 2
-	sequencia[1][2] = 2
-	sequencia[1][3] = 2
-	sequencia[1][4] = 2
+	sequencia[1][2] = 5
+	sequencia[1][3] = 4
+	sequencia[1][4] = 1
 	
-	sequencia[2][0] = 3
-	sequencia[2][1] = 3
-	sequencia[2][2] = 3
-	sequencia[2][3] = 3
+	sequencia[2][0] = 5
+	sequencia[2][1] = 5
+	sequencia[2][2] = 4
+	sequencia[2][3] = 2
 	sequencia[2][4] = 3
 	
 	Genius = get_node("Genius")
+	
+	estagio = 3
 	
 	pass # Replace with function body.
 
@@ -78,7 +85,7 @@ func _process(delta):
 			Genius.tocar(sequencia[estagio])
 	
 	if(estagio == 3):
-		Script_global.seta[2] = 1
-		Script_global.proxima_cena[0] = "Dungeon1/Dungeon1_2"
+		Script_global.seta[1] = 1
+		Script_global.proxima_cena[1] = "Dungeon1/Dungeon1_2"
 			
 	pass

@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocidade = Vector2(0,0)
 var acel = 100
 var velocidade_max = 500
-var atrito = 40
+var atrito = 50
 
 var bateu = false
 
