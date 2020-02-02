@@ -20,7 +20,7 @@ func _ready():
 	seta.name = "Seta"
 	add_child(seta)
 	
-	Script_global.proxima_cena[0] = "Dungeon2/Dungeon2_1"
+	Script_global.proxima_cena[1] = "Caminho"
 	pass # Replace with function body.
 
 

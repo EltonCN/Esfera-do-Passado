@@ -70,8 +70,6 @@ func _ready():
 	
 	Genius = get_node("Genius")
 	
-	estagio = 3
-	
 	pass # Replace with function body.
 
 
@@ -85,7 +83,7 @@ func _process(delta):
 			Genius.tocar(sequencia[estagio])
 	
 	if(estagio == 3):
-		Script_global.seta[1] = 1
-		Script_global.proxima_cena[1] = "Dungeon1/Dungeon1_2"
+		Script_global.seta[2] = 1
+		Script_global.proxima_cena[2] = "Dungeon1/Dungeon1_2"
 			
 	pass

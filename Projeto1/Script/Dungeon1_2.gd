@@ -19,7 +19,7 @@ func _ready():
 	Script_global.seta[2] = 0
 	Script_global.seta[3] = 0
 	
-	Script_global.proxima_cena[1] = "Dungeon2/Dungeon2"
+	Script_global.proxima_cena[1] = "Caminho"
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

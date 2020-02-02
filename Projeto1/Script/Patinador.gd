@@ -3,7 +3,9 @@ extends KinematicBody2D
 var velocidade = Vector2(0,0)
 var acel = 100
 var velocidade_max = 500
-var atrito = 50
+var atrito = 15
+
+var padrao = 15
 
 var bateu = false
 
@@ -24,7 +26,6 @@ func _process(delta):
 			#Atrito X
 			if(velocidade.x > 0):
 				velocidade.x -= atrito*delta
-				
 				if(velocidade.x<0):
 					velocidade.x = 0
 			elif(velocidade.x < 0):
@@ -52,10 +53,13 @@ func _process(delta):
 		
 	if(velocidade.x>velocidade_max):
 		velocidade.x = velocidade_max
+	if(velocidade.x<-velocidade_max):
+		velocidade.x = -velocidade_max
 	
 	if(velocidade.y>velocidade_max):
 		velocidade.y = velocidade_max
-	
+	if(velocidade.y<-velocidade_max):
+		velocidade.y = -velocidade_max
 	
 	#Computa o atrito
 	
@@ -73,10 +77,9 @@ func _process(delta):
 
 
 func _on_Area2D_body_entered(body):
-	atrito = 0
 	pass # Replace with function body.
 
 
 func _on_Area2D_body_exited(body):
-	atrito = 40
+	atrito = padrao
 	pass # Replace with function body.

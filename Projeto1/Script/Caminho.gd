@@ -7,6 +7,9 @@ extends Node2D
 var cena_seta = load("res://Nós/Seta.tscn")
 var seta = null
 
+onready var templo1 = preload("res://Sprite/TemploFora/Templo_1.png") 
+onready var templo2 = preload("res://Sprite/TemploFora/Templo_2.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -19,8 +22,14 @@ func _ready():
 	seta.name = "Seta"
 	add_child(seta)
 	
-	Script_global.proxima_cena[2] = "Caminho"
-	
+	if(Script_global.fragmento == 0):
+		Script_global.proxima_cena[2] = "Introdução/Introdução_Templo"
+	elif(Script_global.fragmento == 1):
+		Script_global.proxima_cena[2] = "Introdução/Introdução_Templo"
+		get_node("Templo").texture = templo1
+	else:
+		Script_global.proxima_cena[2] = "Introdução/Introdução_Templo"
+		get_node("Templo").texture = templo2
 	pass # Replace with function body.
 
 

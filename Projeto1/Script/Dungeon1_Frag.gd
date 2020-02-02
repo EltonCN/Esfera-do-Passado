@@ -18,7 +18,7 @@ func _ready():
 func _on_Dungeon1_Frag_pressed():
 	disabled = true
 	hide()
-	
+	Script_global.fragmento = 1
 	Script_global.seta[1] = 1
 	
 	pass # Replace with function body.
