@@ -25,10 +25,10 @@ func _ready():
 	if(Script_global.fragmento == 0):
 		Script_global.proxima_cena[2] = "Introdução/Introdução_Templo"
 	elif(Script_global.fragmento == 1):
-		Script_global.proxima_cena[2] = "Introdução/Introdução_Templo"
+		Script_global.proxima_cena[2] = "Templo"
 		get_node("Templo").texture = templo1
 	else:
-		Script_global.proxima_cena[2] = "Introdução/Introdução_Templo"
+		Script_global.proxima_cena[2] = "Templo"
 		get_node("Templo").texture = templo2
 	pass # Replace with function body.
 

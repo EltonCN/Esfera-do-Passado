@@ -19,7 +19,7 @@ func _ready():
 	seta.name = "Seta"
 	add_child(seta)
 	
-	Script_global.proxima_cena[2] = "Caminho"
+	Script_global.proxima_cena[2] = "Introdução/Lembrança"
 	
 	pass # Replace with function body.
 
