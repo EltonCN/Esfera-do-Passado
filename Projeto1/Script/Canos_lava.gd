@@ -123,5 +123,5 @@ func _process(delta):
 	if(estado[2][6]<0):
 		concluido = 1
 		atualiza_textura()
-			
+		get_parent().concluido = 1	
 	pass
