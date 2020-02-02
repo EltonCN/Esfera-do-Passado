@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprite/Prov_Cano.png" type="Texture" id=1]
 [ext_resource path="res://Script/Canos_lava.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Script/Dungeon2_1.gd" type="Script" id=5]
 [ext_resource path="res://Sprite/Interiores/Interior_Fogo.png" type="Texture" id=6]
 [ext_resource path="res://Script/FundoLava.gd" type="Script" id=7]
+[ext_resource path="res://Sprite/Fragmentos/Fragmento_Vermelho_Quebrado.png" type="Texture" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
@@ -278,8 +279,12 @@ __meta__ = {
 }
 
 [node name="Gema2" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 669.383
+margin_top = 365.104
+margin_right = 819.383
+margin_bottom = 540.104
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 8 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

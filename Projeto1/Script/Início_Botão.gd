@@ -17,5 +17,6 @@ func _ready():
 
 
 func _on_Boto_pressed():
+	Script_global.cursor = 1
 	get_tree().change_scene("res://Cenas/Introdução/Cemitério.tscn")
 	pass # Replace with function body.

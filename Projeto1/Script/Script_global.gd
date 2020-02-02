@@ -7,10 +7,11 @@ var proxima_cena = ["","","",""]
 
 var cursor = -1 #-1 normal, 0 mão
 
+var fragmento = 0
 
 onready var sprite_normal = null
-onready var sprite_mao = preload("res://Sprite/Mão.png")
-onready var sprite_ferramenta1 = preload("res://Sprite/Mão.png")
+onready var sprite_mao = preload("res://Sprite/Mão2.png")
+onready var sprite_ferramenta1 = preload("res://Sprite/Mão2.png")
 onready var sprite_ferramenta2 = preload("res://Sprite/Mão.png")
 onready var sprite_ferramenta3 = preload("res://Sprite/Mão.png")
 onready var sprite_ferramenta4 = preload("res://Sprite/Mão.png")
