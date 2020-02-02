@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Script/Dungeon1_1.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Prov_Cano.png" type="Texture" id=2]
@@ -7,10 +7,24 @@
 [ext_resource path="res://Script/Cristal0.gd" type="Script" id=5]
 [ext_resource path="res://Script/Tom.gd" type="Script" id=6]
 [ext_resource path="res://Sprite/Ponte.gd" type="Script" id=7]
+[ext_resource path="res://Sprite/Interiores/Interior_Gelo.png" type="Texture" id=8]
+[ext_resource path="res://Música/Tom 1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Música/Tom 2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Música/Tom 5.wav" type="AudioStream" id=11]
+[ext_resource path="res://Música/Tom 3.wav" type="AudioStream" id=12]
+[ext_resource path="res://Música/Tom 4.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sprite/Gelo/Cristal0.png" type="Texture" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 23.0502
+height = 0.473305
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10.0056, 452.032 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 30.866
+height = 23.2044
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,7 +32,17 @@ __meta__ = {
 "_edit_vertical_guides_": [ 226.59 ]
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 3600.0
+margin_bottom = 1800.0
+rect_scale = Vector2( 0.284612, 0.331831 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Patinador" type="KinematicBody2D" parent="."]
+position = Vector2( 114.272, 141.479 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Patinador"]
@@ -30,20 +54,18 @@ shape = SubResource( 1 )
 position = Vector2( 299.881, 214.201 )
 texture = ExtResource( 2 )
 
-[node name="Cristal0_0" type="Area2D" parent="."]
-script = ExtResource( 5 )
+[node name="Area2D" type="Area2D" parent="Patinador"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristal0_0"]
-shape = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="Cristal0_0"]
-texture = ExtResource( 2 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Patinador/Area2D"]
+position = Vector2( 298.586, 216.941 )
+scale = Vector2( 2.37315, 2.57468 )
+shape = SubResource( 1 )
 
 [node name="Genius" type="GridContainer" parent="."]
-margin_left = 298.124
-margin_top = 76.964
-margin_right = 714.124
-margin_bottom = 156.964
+margin_left = 287.785
+margin_top = 26.5621
+margin_right = 703.785
+margin_bottom = 106.562
 columns = 5
 script = ExtResource( 4 )
 __meta__ = {
@@ -58,47 +80,251 @@ script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom1"]
 position = Vector2( -693.377, -134.867 )
+stream = ExtResource( 9 )
 
 [node name="Tom2" type="TextureRect" parent="Genius"]
 margin_left = 84.0
 margin_right = 164.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom2"]
+stream = ExtResource( 10 )
 
 [node name="Tom3" type="TextureRect" parent="Genius"]
 margin_left = 168.0
 margin_right = 248.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom3"]
+stream = ExtResource( 12 )
 
 [node name="Tom4" type="TextureRect" parent="Genius"]
 margin_left = 252.0
 margin_right = 332.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom4"]
+stream = ExtResource( 13 )
 
 [node name="Tom5" type="TextureRect" parent="Genius"]
 margin_left = 336.0
 margin_right = 416.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom5"]
+stream = ExtResource( 11 )
 
 [node name="Ponte" type="GridContainer" parent="."]
+margin_top = -2.78952
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 37.2105
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Ponte1" type="Sprite" parent="Ponte"]
 script = ExtResource( 7 )
-[connection signal="body_entered" from="Cristal0_0" to="Cristal0_0" method="_on_Cristal_body_entered"]
-[connection signal="body_exited" from="Cristal0_0" to="Cristal0_0" method="_on_Cristal_body_exited"]
+
+[node name="Borda do ringue" type="StaticBody2D" parent="."]
+position = Vector2( 91.5888, 161.091 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 0.508072, 208.142 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 809.005, 201.112 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 367.803, 403.898 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 417.788, -11.0193 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Cristais" type="Node2D" parent="."]
+
+[node name="Tom5" type="AudioStreamPlayer2D" parent="Cristais"]
+position = Vector2( 623.785, 26.5621 )
+stream = ExtResource( 11 )
+volume_db = -10.0
+
+[node name="Tom4" type="AudioStreamPlayer2D" parent="Cristais"]
+position = Vector2( 539.785, 26.5621 )
+stream = ExtResource( 13 )
+volume_db = -10.0
+
+[node name="Tom3" type="AudioStreamPlayer2D" parent="Cristais"]
+position = Vector2( 455.785, 26.5621 )
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="Tom2" type="AudioStreamPlayer2D" parent="Cristais"]
+position = Vector2( 371.785, 26.5621 )
+stream = ExtResource( 10 )
+volume_db = -10.0
+
+[node name="Tom1" type="AudioStreamPlayer2D" parent="Cristais"]
+position = Vector2( -405.592, -108.305 )
+stream = ExtResource( 9 )
+volume_db = -10.0
+
+[node name="Cristal0_0" type="Area2D" parent="Cristais"]
+position = Vector2( 100.866, 243.152 )
+rotation = 1.5708
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal0_0"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal0_0"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal0_1" type="Area2D" parent="Cristais"]
+position = Vector2( 738.987, 553.844 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal0_1"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal0_1"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal1_0" type="Area2D" parent="Cristais"]
+position = Vector2( 99.5604, 466.289 )
+rotation = 1.5708
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal1_0"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal1_0"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal1_1" type="Area2D" parent="Cristais"]
+position = Vector2( 638.555, 156.768 )
+rotation = 3.14159
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal1_1"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal1_1"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal2_0" type="Area2D" parent="Cristais"]
+position = Vector2( 241.788, 551.535 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal2_0"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal2_0"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal2_1" type="Area2D" parent="Cristais"]
+position = Vector2( 883.885, 257.765 )
+rotation = -1.5708
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal2_1"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal2_1"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal3_0" type="Area2D" parent="Cristais"]
+position = Vector2( 209.446, 164.294 )
+rotation = 3.14159
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal3_0"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal3_0"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal3_1" type="Area2D" parent="Cristais"]
+position = Vector2( 532.213, 546.416 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal3_1"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal3_1"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal4_0" type="Area2D" parent="Cristais"]
+position = Vector2( 456.105, 175.45 )
+rotation = 3.14159
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal4_0"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal4_0"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="Cristal4_1" type="Area2D" parent="Cristais"]
+position = Vector2( 884.838, 424.399 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cristais/Cristal4_1"]
+position = Vector2( 2.70181, -1.62108 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Cristais/Cristal4_1"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+[connection signal="body_entered" from="Patinador/Area2D" to="Patinador" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Patinador/Area2D" to="Patinador" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal0_0" to="Cristais/Cristal0_0" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal0_0" to="Cristais/Cristal0_0" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal0_1" to="Cristais/Cristal0_1" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal0_1" to="Cristais/Cristal0_1" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal1_0" to="Cristais/Cristal1_0" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal1_0" to="Cristais/Cristal1_0" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal1_1" to="Cristais/Cristal1_1" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal1_1" to="Cristais/Cristal1_1" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal2_0" to="Cristais/Cristal2_0" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal2_0" to="Cristais/Cristal2_0" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal2_1" to="Cristais/Cristal2_1" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal2_1" to="Cristais/Cristal2_1" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal3_0" to="Cristais/Cristal3_0" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal3_0" to="Cristais/Cristal3_0" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal3_1" to="Cristais/Cristal3_1" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal3_1" to="Cristais/Cristal3_1" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal4_0" to="Cristais/Cristal4_0" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal4_0" to="Cristais/Cristal4_0" method="_on_Cristal_body_exited"]
+[connection signal="body_entered" from="Cristais/Cristal4_1" to="Cristais/Cristal4_1" method="_on_Cristal_body_entered"]
+[connection signal="body_exited" from="Cristais/Cristal4_1" to="Cristais/Cristal4_1" method="_on_Cristal_body_exited"]

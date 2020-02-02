@@ -19,7 +19,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(get_parent().concluido == 1):
-		if(tempo < 2):
+		if(tempo < 1.25):
 			texture_normal = lava
 			tempo += delta
 		else:

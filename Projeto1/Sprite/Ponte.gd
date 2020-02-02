@@ -19,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(get_parent().getparent().estagio >= indice):
+	if(get_tree().get_root().get_node("Node2D").estagio >= indice):
 		visible = true
 	else:		
 		visible = false
