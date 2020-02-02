@@ -7,8 +7,8 @@ extends TextureButton
 
 var tempo = 0
 
-onready var consertado = preload("res://Sprite/Prov_Cano.png")
-onready var lava = preload("res://Sprite/Prov_Cano.png")
+onready var consertado = preload("res://Sprite/Fragmentos/Fragmento_Vermelho.png")
+onready var lava = preload("res://Sprite/Fragmentos/Fragmento_Vermelho_Consertando.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	disabled = true
@@ -29,7 +29,8 @@ func _process(delta):
 
 
 func _on_Gema2_pressed():
-	Script_global.seta[2] = 1
+	Script_global.fragmento = 2
+	Script_global.seta[1] = 1
 	hide()
 	disabled = true
 	pass # Replace with function body.

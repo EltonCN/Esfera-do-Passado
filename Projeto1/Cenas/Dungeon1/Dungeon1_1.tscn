@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Script/Dungeon1_1.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Prov_Cano.png" type="Texture" id=2]
@@ -14,10 +14,22 @@
 [ext_resource path="res://Música/Tom 3.wav" type="AudioStream" id=12]
 [ext_resource path="res://Música/Tom 4.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sprite/Gelo/Cristal0.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/Gelo/Patinador1.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/Gelo/Patinador2.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/WASD.png" type="Texture" id=17]
+[ext_resource path="res://Sprite/Gelo/Ponte.png" type="Texture" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 23.0502
-height = 0.473305
+radius = 15.9032
+height = 17.4005
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10.0056, 452.032 )
@@ -42,24 +54,26 @@ __meta__ = {
 }
 
 [node name="Patinador" type="KinematicBody2D" parent="."]
-position = Vector2( 114.272, 141.479 )
+position = Vector2( 438.946, 330.648 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Patinador"]
-position = Vector2( 298.586, 216.941 )
+position = Vector2( 4.07251, 0.814514 )
 scale = Vector2( 2.37315, 2.57468 )
 shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Patinador"]
-position = Vector2( 299.881, 214.201 )
-texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="Patinador"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Patinador/Area2D"]
-position = Vector2( 298.586, 216.941 )
+position = Vector2( 3.25803, 1.62903 )
 scale = Vector2( 2.37315, 2.57468 )
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Patinador"]
+position = Vector2( 13.0321, -4.07254 )
+scale = Vector2( 0.6329, 0.605 )
+frames = SubResource( 5 )
+playing = true
 
 [node name="Genius" type="GridContainer" parent="."]
 margin_left = 287.785
@@ -131,6 +145,18 @@ __meta__ = {
 }
 
 [node name="Ponte1" type="Sprite" parent="Ponte"]
+position = Vector2( 980.986, 235.817 )
+texture = ExtResource( 18 )
+script = ExtResource( 7 )
+
+[node name="Ponte2" type="Sprite" parent="Ponte"]
+position = Vector2( 1023.41, 235.817 )
+texture = ExtResource( 18 )
+script = ExtResource( 7 )
+
+[node name="Ponte3" type="Sprite" parent="Ponte"]
+position = Vector2( 1066.33, 236.305 )
+texture = ExtResource( 18 )
 script = ExtResource( 7 )
 
 [node name="Borda do ringue" type="StaticBody2D" parent="."]
@@ -153,6 +179,11 @@ shape = SubResource( 3 )
 position = Vector2( 417.788, -11.0193 )
 rotation = 1.5708
 shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 195.871, 80.3429 )
+scale = Vector2( 0.23154, 0.241976 )
+texture = ExtResource( 17 )
 
 [node name="Cristais" type="Node2D" parent="."]
 

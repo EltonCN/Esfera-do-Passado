@@ -11,7 +11,7 @@ var indice = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	indice = name[4]
+	indice = name[5]
 	indice = int(indice)
 	
 	pass # Replace with function body.

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Script/Cemitério.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Cemitério.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/Personagem.png" type="Texture" id=3]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,3 +15,8 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Personagem" type="Sprite" parent="."]
+position = Vector2( 461.949, 409.088 )
+texture = ExtResource( 3 )
+flip_h = true
