@@ -14,7 +14,7 @@ func _ready():
 	apagado = load("res://Sprite/Cristal"+str(tipo)+".png")
 	aceso = load("res://Sprite/CristalA"+str(tipo)+".png")
 	
-	Sprite.texture = apagado
+	#Sprite.texture = apagado
 	pass # Replace with function body.
 
 

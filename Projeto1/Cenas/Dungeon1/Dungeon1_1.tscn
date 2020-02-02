@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Script/Dungeon1_1.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Prov_Cano.png" type="Texture" id=2]
@@ -7,15 +7,35 @@
 [ext_resource path="res://Script/Cristal0.gd" type="Script" id=5]
 [ext_resource path="res://Script/Tom.gd" type="Script" id=6]
 [ext_resource path="res://Sprite/Ponte.gd" type="Script" id=7]
+[ext_resource path="res://Sprite/Interiores/Interior_Gelo.png" type="Texture" id=8]
+[ext_resource path="res://Música/Tom 1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Música/Tom 2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Música/Tom 5.wav" type="AudioStream" id=11]
+[ext_resource path="res://Música/Tom 3.wav" type="AudioStream" id=12]
+[ext_resource path="res://Música/Tom 4.wav" type="AudioStream" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 23.0502
+height = 0.473305
 
 [sub_resource type="CapsuleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10.0056, 452.032 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 226.59 ]
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 3600.0
+margin_bottom = 1800.0
+rect_scale = Vector2( 0.284612, 0.331831 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="Patinador" type="KinematicBody2D" parent="."]
@@ -30,6 +50,13 @@ shape = SubResource( 1 )
 position = Vector2( 299.881, 214.201 )
 texture = ExtResource( 2 )
 
+[node name="Area2D" type="Area2D" parent="Patinador"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Patinador/Area2D"]
+position = Vector2( 298.586, 216.941 )
+scale = Vector2( 2.37315, 2.57468 )
+shape = SubResource( 1 )
+
 [node name="Cristal0_0" type="Area2D" parent="."]
 script = ExtResource( 5 )
 
@@ -40,10 +67,10 @@ shape = SubResource( 2 )
 texture = ExtResource( 2 )
 
 [node name="Genius" type="GridContainer" parent="."]
-margin_left = 298.124
-margin_top = 76.964
-margin_right = 714.124
-margin_bottom = 156.964
+margin_left = 287.785
+margin_top = 26.5621
+margin_right = 703.785
+margin_bottom = 106.562
 columns = 5
 script = ExtResource( 4 )
 __meta__ = {
@@ -58,47 +85,80 @@ script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom1"]
 position = Vector2( -693.377, -134.867 )
+stream = ExtResource( 9 )
 
 [node name="Tom2" type="TextureRect" parent="Genius"]
 margin_left = 84.0
 margin_right = 164.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom2"]
+stream = ExtResource( 10 )
 
 [node name="Tom3" type="TextureRect" parent="Genius"]
 margin_left = 168.0
 margin_right = 248.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom3"]
+stream = ExtResource( 12 )
 
 [node name="Tom4" type="TextureRect" parent="Genius"]
 margin_left = 252.0
 margin_right = 332.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom4"]
+stream = ExtResource( 13 )
 
 [node name="Tom5" type="TextureRect" parent="Genius"]
 margin_left = 336.0
 margin_right = 416.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Genius/Tom5"]
+stream = ExtResource( 11 )
 
 [node name="Ponte" type="GridContainer" parent="."]
+margin_top = -2.78952
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 37.2105
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Ponte1" type="Sprite" parent="Ponte"]
 script = ExtResource( 7 )
+
+[node name="Borda do ringue" type="StaticBody2D" parent="."]
+position = Vector2( 91.5888, 161.091 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 0.508072, 208.142 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 809.005, 201.112 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 367.803, 403.898 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borda do ringue"]
+position = Vector2( 417.788, -11.0193 )
+rotation = 1.5708
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Patinador/Area2D" to="Patinador" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Patinador/Area2D" to="Patinador" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Cristal0_0" to="Cristal0_0" method="_on_Cristal_body_entered"]
 [connection signal="body_exited" from="Cristal0_0" to="Cristal0_0" method="_on_Cristal_body_exited"]

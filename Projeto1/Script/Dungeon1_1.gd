@@ -4,7 +4,7 @@ var cena_ferramenta = load("res://Nós/Ferramenta.tscn")
 var ferramenta = null
 
 var estagio = 0
-var tempo = 9
+var tempo = 6
 
 var sequencia = []
 var atual = 0
@@ -45,23 +45,23 @@ func _ready():
 		for j in range(5):
 			sequencia[i].append(0)
 			
-	sequencia[0][0] = 0
-	sequencia[0][1] = 0
-	sequencia[0][2] = 0
-	sequencia[0][3] = 0
-	sequencia[0][4] = 0
+	sequencia[0][0] = 1
+	sequencia[0][1] = 2
+	sequencia[0][2] = 3
+	sequencia[0][3] = 4
+	sequencia[0][4] = 5
 	
-	sequencia[1][0] = 0
-	sequencia[1][1] = 0
-	sequencia[1][2] = 0
-	sequencia[1][3] = 0
-	sequencia[1][4] = 0
+	sequencia[1][0] = 2
+	sequencia[1][1] = 2
+	sequencia[1][2] = 2
+	sequencia[1][3] = 2
+	sequencia[1][4] = 2
 	
-	sequencia[2][0] = 0
-	sequencia[2][1] = 0
-	sequencia[2][2] = 0
-	sequencia[2][3] = 0
-	sequencia[2][4] = 0
+	sequencia[2][0] = 3
+	sequencia[2][1] = 3
+	sequencia[2][2] = 3
+	sequencia[2][3] = 3
+	sequencia[2][4] = 3
 	
 	Genius = get_node("Genius")
 	
@@ -71,7 +71,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(estagio < 3):		
-		if(tempo<10):
+		if(tempo<8):
 			tempo += delta
 		else:
 			tempo = 0
