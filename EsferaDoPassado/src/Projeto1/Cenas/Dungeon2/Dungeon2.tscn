@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Script/Dungeon2.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/Castelo de fogo.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/exterior de fogo.png" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Fundo" type="TextureRect" parent="."]
+margin_left = 5.87268
+margin_right = 1029.87
+margin_bottom = 600.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 510.922, 259.865 )
+scale = Vector2( 0.892335, 0.784937 )
+texture = ExtResource( 2 )
