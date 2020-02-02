@@ -11,15 +11,15 @@ var seta = null
 func _ready():
 	
 	Script_global.seta[0] = 0
-	Script_global.seta[1] = 1
-	Script_global.seta[2] = 0
+	Script_global.seta[1] = 0
+	Script_global.seta[2] = 1
 	Script_global.seta[3] = 0
 	
 	seta = cena_seta.instance()
 	seta.name = "Seta"
 	add_child(seta)
 	
-	Script_global.proxima_cena[1] = "Introdução/Cemitério2"
+	Script_global.proxima_cena[2] = "Introdução/Cemitério2"
 	
 	pass # Replace with function body.
 

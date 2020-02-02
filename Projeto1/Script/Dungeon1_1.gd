@@ -3,7 +3,7 @@ extends Node2D
 var cena_seta = load("res://Nós/Seta.tscn")
 var seta = null
 
-var estagio = 0
+var estagio = 3
 var tempo = 6
 
 var sequencia = []
