@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Script/Início_Botão.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/Emojis/Check.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/Botão.png" type="Texture" id=3]
+
+[node name="Inicial" type="Node2D"]
+
+[node name="Inicial_Fundo" type="Sprite" parent="."]
+
+[node name="Botão" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 233.505
+margin_top = 108.686
+margin_right = 754.505
+margin_bottom = 442.686
+rect_pivot_offset = Vector2( 260.5, 167 )
+texture_normal = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 495.236, 268.808 )
+scale = Vector2( 1.6256, 1.60542 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="Botão" to="Botão" method="_on_Boto_pressed"]
